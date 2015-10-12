@@ -1,0 +1,17 @@
+<h1><%= @species.name %></h1>
+
+<% if @species.sightings.any? %>
+  <h4>Here are the sightings for this species:</h4>
+
+  <ul>
+    <% @species.sightings.each do |sighting| %>
+      <li>
+        <%= sighting.date %> |
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no sightings yet!</p>
+<% end %>
+
+<p><%= link_to "Home", species_index_path %></p>

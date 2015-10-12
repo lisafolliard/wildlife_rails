@@ -18,6 +18,11 @@ class SpeciesController < ApplicationController
     end
   end
 
+  def show
+    @species = Species.find(params[:id])
+    render :show
+  end
+
   private
     def species_params
       params.require(:species).permit(:name)
