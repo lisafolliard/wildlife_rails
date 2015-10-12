@@ -6,8 +6,11 @@
   <ul>
     <% @species.sightings.each do |sighting| %>
       <li>
-        <%= sighting.date %>
+        <%= sighting.date.strftime("%B %d, %Y") %><br>
         <img src="<%= sighting.image %>" >
+        <%= link_to "Delete", species_sighting_path(@species, sighting),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
       </li>
     <% end %>
   </ul>
