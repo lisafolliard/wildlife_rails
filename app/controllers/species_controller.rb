@@ -23,6 +23,20 @@ class SpeciesController < ApplicationController
     render :show
   end
 
+  def edit
+    @species = Species.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @species = Species.find(params[:id])
+    if @species.update(species_params)
+      redirect_to species_path(@species)
+    else
+      render :edit
+    end
+  end
+
   private
     def species_params
       params.require(:species).permit(:name)
