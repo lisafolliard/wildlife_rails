@@ -6,7 +6,7 @@
   <ul>
     <% @species.sightings.each do |sighting| %>
       <li>
-        <%= sighting.date %>
+        <%= sighting.date.strftime("%B %d, %Y") %>
         <img src="<%= sighting.image %>" >
       </li>
     <% end %>
