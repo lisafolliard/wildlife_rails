@@ -6,13 +6,15 @@
   <ul>
     <% @species.sightings.each do |sighting| %>
       <li>
-        <%= sighting.date %> |
+        <%= sighting.date %>
+        <img src="<%= sighting.image %>" >
       </li>
     <% end %>
   </ul>
 <% else %>
   <p>There are no sightings yet!</p>
 <% end %>
+<p><%= link_to "Add sighting", new_species_sighting_path(@species) %></p>
 
 
 
